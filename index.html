@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="utf-8">
+	<meta name="Keywords" content="Microcontroller,8051,Assembly,Programming,Code,Proteus">
+	<title>8051 LCD</title>
+</head>
+
+
+<body  bgcolor=white>
+
+	<div id="header_common"><img src="https://github.com/gmostofabd/8051-Experiments/blob/main/assets/images/github_banner.png" alt="common_header" width="1083" height="150"></div>
+	<div id="topic_container"><h2>Exp. 02 : Push Button Interfacing with 8051 Microcontroller</h2></div>
+
+
+  <table align = center width=1000 height=1000  bgcolor= white>
+	  <tr>
+	    <td width=200 bgcolor=white valign=top>
+
+		    <div id="exp_lst_cont">
+            <ol><h3>8051 Experiment List:</h3>
+                <li><a href="https://gmostofabd.github.io/8051-LED/">LED Blink</a></li>
+                <li><a href="https://gmostofabd.github.io/8051-Push-Button/">Push Button Interfacing</a></li>
+                <li><a href="https://gmostofabd.github.io/8051-7Segment/">Seven Segment Display Interfacing</a></li>
+                <li>LED Dot Matrix Display Interfacing</li>
+                <li><a href="https://gmostofabd.github.io/8051-LCD/">LCD Interfacing</a></li>
+                <li>Potentiometer (or Analog) Reading</li>
+                <li>Key Pad Matrix Interfacing</li>
+                <li><a href="https://gmostofabd.github.io/dc-motor-8051/">DC Motor Interfacing</a></li>
+                <li><a href="https://gmostofabd.github.io/stepper-motor-8051/">Stepper Motor Interfacing</a></li>
+                <li>RTC Interfacing</li>
+                <li>EEPROM Interfacing</li>
+                <li>Bluetooth interfacing</li>
+                <li>7 Segment Clock</li>
+                <li>Serial Communication</li>
+            </ol>
+        </div>
+
+        <div id="proj_lst_cont">
+            <ol><h3>8051 Projects:</h3>
+              <li>Access Control System</li>
+              <li>6 Digit Clock</li>
+              <li>IR Remote Load ON OFF</li>
+              <li>Line Follower</li>
+              <li>Incubator Controller</li>
+            </ol>
+        </div>         
+
+    </td>
+
+
+
+	  <td width=600 align=center valign=top style="padding-left: 10px; padding-right: 10px;">
+		
+		  <h3>Introduction:</h3>
+      <blockquote>
+		  <p>
+            A very simple and easy way to provide for human interaction with the microcontroller 
+            is to insert a button into the circuit. We communicate with computers using two main 
+            input devices: the mouse and the keyboard. A keyboard is nothing more than a bunch of 
+            buttons. Adding a button or switch to the circuit enables the microcontroller to 
+            receive human input.<br><br>
+    
+            In the first experiment, we’ve focused on output only. Now we’re going to go to the 
+            other end of spectrum and play around with inputs. Push button switches are widely 
+            used in embedded system seen in very simple to highly complex systems. So, knowledge 
+            about  interfacing them to  any microcontroller is very essential in designing such 
+            systems. This lesson deals with the technicalities of push button interfacing with 
+            8051 microcontroller and includes a simple example of microcontrollers digital Read
+            function and then so as to ON and OFF an LED.
+	    </p>
+      </blockquote>
+
+      <h3>Hardware Discussion: Liquid Crystal Display (LCD)</h3>
+	
+      <div class="box_70"><img src="assets/images/common_pb.png"/></div>
+      <div class="capt_cont">Fig: Some of available Push Buttons</div>
+
+      <p>
+        A <strong>push-button</strong> (also spelled pushbutton) or simply button or tactile 
+        switch is a component that connects two points in a circuit when you press it. Buttons 
+        are typically made out of hard materials and its surface is usually flat or shaped to 
+        accommodate the human finger or hand, so as to be easily depressed or pushed.
+      </p>
+
+      <h3>Push Button Features :</h3>
+      <ul>
+          <li>Two state mechanism. Initially, it remains in off state or normally</li>
+          <li><strong>open</strong> state but when it is pressed, we can say it <strong>close</strong> state.</li>
+          <li>Available Momentary and Latching types</li>
+          <li>Available size, color, shape etc.</li>
+          <li>Available in Vertical and Horizontal pin outs.</li>
+          <li>High Durability</li>
+          <li>Click response high.</li>
+      </ul>
+
+      <h3>Push Button Basics :</h3>
+        <p>
+            A typical push button switch has two active terminals that may be normally open 
+            or closed and changes its state when pressed or depressed. Sometimes we get 4 pins 
+            with push buttons having a paired (internally connected) terminals of each pin which 
+            is illustrated in the following figure. There are also some push buttons are normally 
+            closed but open when is pressed. Those are used for some special purposes.
+        </p>
+
+        <div class="box_80"><img src="assets/images/pb_actions.png" alt="LCD mdules"></div>
+        <div class="capt_cont">Fig: 4 Pin Push Button Connections and Actions</div>
+
+
+        <h3>How it works?</h3>
+        <blockquote>
+        <p>
+            If we connect the push button switch directly to a Microcontroller to get digital input, 
+            It means switch one pin is connected to Ground or 5v Vcc and another pin connected to 2
+            Microcontroller digital pin. In this case, the Microcontroller is read unstable input 
+            from the push button.
+            <br><br>So, we need to connect a “pull-up” or “pull-down” resistors circuit to stabilizes 
+            the input, when using the switch.
+        </p>
+        </blockquote>
+
+        <div class="box_80"><img src="assets/images/pb_method1.png" alt="LCD mdules"></div>
+        <div class="capt_cont">Fig: 4 Pin Push Button Connections and Actions</div>
+
+        <p>
+            <strong>Pull-up Resistors :</strong>
+            If the push button one pin is connected to the Vcc through a resistor 
+            and the other pin is connected to the ground, this circuit known as the pull-up resistor 
+            circuit. In this case, the push button output is High(1) when the button is open, and the 
+            output of the push button is Low(0) when the button is pressed.
+
+            <br><br><strong>Pull-down Resistors :</strong>
+            If the push button one pin is connected to the ground through a resistor and the other 
+            pin is connected to the Vcc, this circuit known as the pull-down resistor circuit. In this 
+            case, the push button output is Low(0) when the button is open, and the output of the push 
+            button is High(1) when the button is pressed.
+        </p>
+
+
+        <h3>Circuit Diagram : Push Button Interfacing to 8051.</h3>
+
+        <div class="box_ckt_diag"><img src="assets/images/PUSHBUTTON_8051_Pull_Ckt.png"/></div>
+        <div class="capt_cont">Fig: Push Button interfacing with AT89S51</div>
+
+
+        <h3>Circuit Discussion :</h3>
+
+        <blockquote>
+        <p>
+            A push button switch is connected to PORT-0 PIN-0. The SW is connected externally 
+            with a pull-up resistor since there is no internal pull-up resistor for port 0. 
+            The other end of the push button is connected to ground.
+
+            <br><br>The voltages at the pins will be VCC (Approx) when the button is not pushed. 
+            The input pin will get grounded on pressing the button. The LED connected to the 
+            PORT-2 PIN-0 with a series resistor to limit the current. Our target is to ON the 
+            LED as long as the Button (ON) is pressed and hold and vice versa.
+        </p>
+        </blockquote>
+
+
+        <h3>Assembly Program : <a href="https://github.com/gmostofabd/8051-7Segment/blob/main/codes/Push_Button_Pull_8051.asm">Push_Button_Pull_8051.asm</a></h3>
+        <div class="prog_cont">
+            <embed type="text/html" src="codes/Push_Button_Pull_8051.asm"  width="500" height="500">
+        </div>
+
+        <h3>Code Discussion:</h3>
+
+        <h3>Post Run Discussion : Button Read Using Interrupt</h3>
+        <blockquote>
+        <p>
+            Let's start with a simple example - using an Interrupt to monitor a button press. 
+            To start, we'll take a sketch you've likely seen before - the "Button" example 
+            sketch included above in this article. This time, to read the button using an 
+            external interrupt source we will connect the switch to the INT0 pin at P3.2
+
+          <br><br>An <strong>ISR</strong> is just like any other subroutine we write inside a 
+          program, except for the difference that an ISR must always end with a 
+          <strong>RETI</strong> instruction and not with a <strong>RET</strong> instruction 
+          (as in the case of subroutines). An ISR when evoked, executes a certain lines 
+          of code that does some kind of operations. It can be anything as defined by 
+          the programmer. The only condition is that the first line of ISR must begin 
+          from the corresponding vector address. Vector address of INT0 is 0003H and that 
+          of INT1 is 0013H for the 8051 Microcontrollers.
+        </p>
+        </blockquote>
+
+        <h3>Circuit Diagram : Push Button Reading via External Interrupt.</h3>
+
+        <div class="box_ckt_diag"><img src="assets/images/PUSHBUTTON_8051_INT_Ckt.png"/></div>
+        <div class="capt_cont">Fig: Push Button Reading via External Interrupt</div>
+
+        <h3>Assembly Program : Push_Button_Intr_8051.asm</h3>
+        <div class="prog_cont"><embed type="text/html" src="codes/Push_Button_Intr_8051.asm"  width="500" height="500"></div>
+
+    </td>
+
+	  <td valign=top>
+		
+      <div class="box_this_lesson">
+        <h3>This lesson includes:</h3>
+        <ol>
+          <li>Introduction</li>
+          <li>Hardware Discussion</li>
+          <li>Circuit Diagram</li>
+          <li>Assembly Code</li>
+          <li>Post Run Discussion</li>
+          <li>Exercises</li>
+          <li>Tips and Tricks</li>
+        </ol>
+      </div>
+
+
+      <div class="vdo_lst_cont">
+          <h3>Lesson Video</h3>
+          <iframe width="155" height="100"
+          src="https://www.youtube.com/embed/tgbNymZ7vqY">
+            </iframe>
+      </div>
+
+      <div class="box_this_lesson">
+          <h3>Important Downloads</h3>
+          <ol class="inside">
+            <li>Proteus 8.7</li>
+            <li>MIDE-51 IDE</li>
+            <li>AVRDUDES</li>
+          </ol>
+      </div>
+
+
+      <div class="box_this_lesson">
+          <span><b>Lesson Contents</b></span>
+          <ol>
+              <li>Circuit Diagram (Proteus)</li>
+              <li>Lesson PDF</li>
+              <li>7seg_1d_8051.asm</li>
+              <li>7seg_2d_8051.asm</li>
+              <li>7segment Datasheet PDF</li>
+              <li>Exercise Solutions</li>
+          </ol>
+      </div>
+
+    </td>
+
+
+	</tr>
+         
+  </table>
+
+  <table width=1000 height=50 align= center border="1">
+	  <tr>
+			<td>Prev topic: Push Button Interfacing with 8051</td>
+			<td>Next topic: LED Matrix interfacing with 8051</td>
+		</tr>
+  </table>
+
+	<div id="footer_common">
+    <div class="prj_footer_cell">
+      <font face="Verdana, Arial, Helvetica, sans-serif" color="#0000ff" size="2" ><strong>Top Tutorial sites </strong></font>
+      <div id="navcontainer">
+        <ul >
+          <li id="active"><a href="http://www.melab-bd.com/home.html"><strong>Circuit Today</strong></a></li>
+          <li><a href="http://www.melab-bd.com/about.html"><strong>Radio Electronics</strong></a></li>
+          <li><a href="http://www.melab-bd.com/product.html"><strong>MikroE</strong></a></li>
+          <li><a href="http://www.melab-bd.com/project.html"><strong>8051 Projects</strong></a></li>
+          <li><a href="http://www.melab-bd.com/trainings.html"><strong>101 Components</strong></a></li>
+         </ul>
+      </div>	
+    </div>
+  </div>
+    
+
+</body>
+
+
+</html>
