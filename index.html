@@ -1,301 +1,228 @@
 
-
 <!DOCTYPE html>
 
 <html lang="en">
 
 <head>
 	<link rel="stylesheet" href="assets/css/style.css">
-    <link rel="shortcut icon" href="https://github.com/gmostofabd/melab-store/blob/main/Images/melab-bd_logo.jpg?raw=true" type="image/x-icon">
+	<link rel="shortcut icon" href="https://github.com/gmostofabd/melab-store/blob/main/Images/melab-bd_logo.jpg?raw=true" type="image/x-icon">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>
-      $(function(){
-        $('#sidebar1').load("assets/sidebar1.html");
-      });
-    </script>
+	<script src="https://github.com/gmostofabd/melab-store/blob/main/sharedfooter.js" type="text/javascript" defer></script>
 
-    <meta charset="utf-8">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+	<script>
+    		$(function(){
+      			$('#sidebar1').load("assets/sidebar1.html");
+    		});
+  	</script>
+	
+    	<meta charset="utf-8">
 	<meta name="Keywords" content="Microcontroller,8051,Assembly,Programming,Code,Proteus">
+	
+  <!--Facebook Open graph Mete Tags-->
+	<meta property="og:url"                content="https://gmostofabd.github.io/8051-Push-Button/" />
+	<meta property="og:type"               content="article" />
+	<meta property="og:title"              content="Exp-02 : 8051 Digital Input Read" />
+	<meta property="og:description"        content="Push Button Interfacing with 8051 Microcontrollers" />
+	<meta property="og:image"              content="assets/images/PUSHBUTTON_8051_Pull_Ckt.png" />
 
-    <!--Facebook Open graph Mete Tags-->
-    <meta property="og:url"                content="https://gmostofabd.github.io/8051-7Segment/" />
-    <meta property="og:type"               content="article" />
-    <meta property="og:title"              content="Exp-03 : 8051 and 7 Segment Display" />
-    <meta property="og:description"        content="7 Segment Display Interfacing with 8051 Microcontrollers" />
-    <meta property="og:image"              content="assets/images/SSD_1D_Counter.png" />
-
-
-	<title>8051 7 Segment Display</title>
+	<title>8051 Digital Input</title>
 </head>
 
 
-<body>
+<body  bgcolor=white>
 
 	<div id="header_common"><img src="https://github.com/gmostofabd/melab-store/blob/main/Images/8051_Tutorial_Banner.png?raw=true" alt="common_banner"></div>
-
-	<div id="topic_container">
-		<h2>Exp. 03 : Seven Segment Display Interfacing with 8051</h2>
-	</div>
+	<div id="topic_container"><h2>Exp. 02 : Push Button Interfacing with 8051 Microcontroller</h2></div>
 
 
-    <table align = center width=1000 height=1000 border="1" bgcolor= white>
-	<tr>
+  <table align = center width=1000 height=1000  bgcolor= white>
+	  <tr>
 
-
-	<td width=800 align=center valign=top>
+	  <td width=800 align=center valign=top style="padding-left: 10px; padding-right: 10px;">
 		
-		<h3 align=left>Introduction:</h3>
-        <blockquote>
-            <p>
-                A Seven Segment Display (SSD) is a form of electronic display 
-                device for displayingdecimal numerals 0 to 9 and few characters 
-                like A, b, C, c, H, h, L etc. These arethe oldest yet one of 
-                the efficient types of display used in embedded applications.
-                Seven-segment displays are widely used in digital clocks, 
-                electronic meters, basiccalculators, and other electronic 
-                devices that display numerical information.
-                
-                
-                <br><br>This article is about how to interface a seven segment 
-                LED display to any mi-crocontroller. Funny thing is that if you 
-                want to control a single digit 7 segmentdisplay, then it is 
-                nothing but controlling 7 LED’s as we learnt from the previous 
-                experiment. For multiple segments, there are simple studies for 
-                hardware and soft-ware as well. However a good Knowledge about 
-                how to interface a seven segmentdisplay to a microcontroller 
-                is very essential in designing embedded systems.
-                <br><br>
-            </p>
+		  <h3>Introduction:</h3>
+      <blockquote>
+		  <p>
+            A very simple and easy way to provide for human interaction with the microcontroller 
+            is to insert a button into the circuit. We communicate with computers using two main 
+            input devices: the mouse and the keyboard. A keyboard is nothing more than a bunch of 
+            buttons. Adding a button or switch to the circuit enables the microcontroller to 
+            receive human input.<br><br>
     
-        </blockquote>
+            In the first experiment, we’ve focused on output only. Now we’re going to go to the 
+            other end of spectrum and play around with inputs. Push button switches are widely 
+            used in embedded system seen in very simple to highly complex systems. So, knowledge 
+            about  interfacing them to  any microcontroller is very essential in designing such 
+            systems. This lesson deals with the technicalities of push button interfacing with 
+            8051 microcontroller and includes a simple example of microcontrollers digital Read
+            function and then so as to ON and OFF an LED.
+	    </p>
+      </blockquote>
 
-
-
-        <h3>Hardware Discussion: Seven Segment Display (SSD)</h3>
+      <h3>Hardware Discussion: Liquid Crystal Display (LCD)</h3>
 	
-        <div class="box"><img src="assets/images/7-seg.jpg"/></div>
-        <div class="capt_cont">Fig: Basic Seven Segment Display</div>
+      <div class="box_70"><img src="assets/images/common_pb.png"/></div>
+      <div class="capt_cont">Fig: Some of available Push Buttons</div>
+
+      <p>
+        A <strong>push-button</strong> (also spelled pushbutton) or simply button or tactile 
+        switch is a component that connects two points in a circuit when you press it. Buttons 
+        are typically made out of hard materials and its surface is usually flat or shaped to 
+        accommodate the human finger or hand, so as to be easily depressed or pushed.
+      </p>
+
+      <h3>Push Button Features :</h3>
+      <ul>
+          <li>Two state mechanism. Initially, it remains in off state or normally</li>
+          <li><strong>open</strong> state but when it is pressed, we can say it <strong>close</strong> state.</li>
+          <li>Available Momentary and Latching types</li>
+          <li>Available size, color, shape etc.</li>
+          <li>Available in Vertical and Horizontal pin outs.</li>
+          <li>High Durability</li>
+          <li>Click response high.</li>
+      </ul>
+
+      <h3>Push Button Basics :</h3>
+        <p>
+            A typical push button switch has two active terminals that may be normally open 
+            or closed and changes its state when pressed or depressed. Sometimes we get 4 pins 
+            with push buttons having a paired (internally connected) terminals of each pin which 
+            is illustrated in the following figure. There are also some push buttons are normally 
+            closed but open when is pressed. Those are used for some special purposes.
+        </p>
+
+        <div class="box_80"><img src="assets/images/pb_actions.png" alt="LCD mdules"></div>
+        <div class="capt_cont">Fig: 4 Pin Push Button Connections and Actions</div>
 
 
-
-        <ul class="inside"><h3>SSD Features Features:</h3>
-		  <li>Available in two modes Common Cathode (CC) and Common Anode (CA)</li>
-		  <li>Available in many different sizes like 9.14mm,14.20mm,20.40mm,38.10mm,57.0mm and 100mm (Commonly used/available size is 14.20mm)</li>
-		  <li>Available in many packages like single and multi digit. There are some custom packages like clocks, meters, panels etc.</li>
-		  <li>Available colours: White, Blue, Red, Yellow and Green etc.</li>
-		  <li>Low current operation</li>
-		  <li>Better, brighter and larger display than conventional LCD displays.</li>
-		  <li>Current consumption : 30mA / segment</li>
-          <li>Peak current : 70mA.</li>
-          <li>Distance readable display dislike LCD's.</li>
-		</ul>
-		<br>
-
-
-
-
-        <h3 align=left>SSD Basics :</h3>
-
-        <div class="box_80"><img src="assets/images/7seg_intro.png"/></div>
-        <div class="capt_cont">Fig: SSD Pinout and internal circuit</div>
-
+        <h3>How it works?</h3>
         <blockquote>
-            <p>
-                A seven segment display consists of seven LEDs arranged in the form 
-                of a squarish‘8’ slightly inclined to the right and a single LED as 
-                the dot character. Differentcharacters can be displayed by 
-                selectively glowing the required LED segments.
-    
-                <br><br>The displays common pin is generally used to identify which 
-                type of 7-segmentdisplay it is. As each LED has two connecting pins, 
-                one called the “Anode” andthe other called the “Cathode”, there are 
-                therefore two types of 7-segment displaycalled: Common Cathode7(CC) 
-                and Common Anode8(CA).
-                <br><br>	
-            </p>
-    
+        <p>
+            If we connect the push button switch directly to a Microcontroller to get digital input, 
+            It means switch one pin is connected to Ground or 5v Vcc and another pin connected to 2
+            Microcontroller digital pin. In this case, the Microcontroller is read unstable input 
+            from the push button.
+            <br><br>So, we need to connect a “pull-up” or “pull-down” resistors circuit to stabilizes 
+            the input, when using the switch.
+        </p>
         </blockquote>
 
+        <div class="box_80"><img src="assets/images/pb_method1.png" alt="LCD mdules"></div>
+        <div class="capt_cont">Fig: 4 Pin Push Button Connections and Actions</div>
 
+        <p>
+            <strong>Pull-up Resistors :</strong>
+            If the push button one pin is connected to the Vcc through a resistor 
+            and the other pin is connected to the ground, this circuit known as the pull-up resistor 
+            circuit. In this case, the push button output is High(1) when the button is open, and the 
+            output of the push button is Low(0) when the button is pressed.
 
-        <h3>How to Drive SSD's ?</h3>
-        
-            <div class="box_90"><img src="assets/images/ssd_drive2.png"/></div>
-
-            <div class="capt_cont">Fig: How to use a 7 Segment Display</div>
-
-
-	    <blockquote>
-	    <p>
-            A CC SSD circuit activity has shown at left of above figure. We can 
-            see that only two switches (b and c) are closed and all other 
-            switches are open. So, we can produce the binary data pattern as 
-            00000110 which is equivalent to 03H. And we are getting the decimal 
-            value 1 is illuminated on the display. And Now we can have all the 
-            required data patterns for displaying 0 to 9 using the same method 
-            as in the table of above figure.
+            <br><br><strong>Pull-down Resistors :</strong>
+            If the push button one pin is connected to the ground through a resistor and the other 
+            pin is connected to the Vcc, this circuit known as the pull-down resistor circuit. In this 
+            case, the push button output is Low(0) when the button is open, and the output of the push 
+            button is High(1) when the button is pressed.
         </p>
-	    </blockquote>
-
-        <h3>Circuit Diagram : Seven Segment Display to 8051.</h3>
-
-        <div class="box_90"><img src="assets/images/SSD_1D_Counter.png"/></div>
-        <div class="capt_cont">Fig: A Single Digit Seven Segment Display Circuit.</div>
 
 
+        <h3>Circuit Diagram : Push Button Interfacing to 8051.</h3>
 
+        <div class="box_90"><img src="assets/images/PUSHBUTTON_8051_Pull_Ckt.png"/></div>
+        <div class="capt_cont">Fig: Push Button interfacing with AT89S51</div>
+
+
+        <h3>Circuit Discussion :</h3>
 
         <blockquote>
         <p>
-        <strong>Circuit Discussion :</strong><br><br>
-        The circuit diagram shown above is of an AT89S51 microcontroller based 0 
-        to 9 counter which has a 7 segment LED display interfaced to it in order 
-        to display the count.  This simple circuit illustrates two things. How 
-        to setup simple 0 to 9 up counter using 8051 and more importantly how 
-        to interface a seven segment LED display to  8051 in order to display 
-        a particular result. The common cathode seven segment display D1 is 
-        connected to the Port 1 of the microcontroller (AT89S51) as shown in the 
-        circuit diagram. R3 to R10 are current limiting resistors. S3 is the 
-        reset switch and R2,C3 forms a debouncing circuitry. C1, C2 and X1 are 
-        related to the clock circuit. The software part of the project has to do 
-        the following tasks.
-        
-        <br><br>
+            A push button switch is connected to PORT-0 PIN-0. The SW is connected externally 
+            with a pull-up resistor since there is no internal pull-up resistor for port 0. 
+            The other end of the push button is connected to ground.
+
+            <br><br>The voltages at the pins will be VCC (Approx) when the button is not pushed. 
+            The input pin will get grounded on pressing the button. The LED connected to the 
+            PORT-2 PIN-0 with a series resistor to limit the current. Our target is to ON the 
+            LED as long as the Button (ON) is pressed and hold and vice versa.
         </p>
         </blockquote>
 
-        <ul class="inside">
-            <li>Form a 0 to 9 counter with a predetermined delay (around 1/2 second here).</li>
-            <li>Convert the current count into digit drive pattern.</li>
-            <li>Put the current digit drive pattern into a port for displaying.</li>
-        </ul>
 
-
-        <h3>Assembly Program : <a href="https://github.com/gmostofabd/8051-7Segment/blob/main/codes/7seg_1d_8051.asm">7seg_1D_8051.asm</a></h3>
+        <h3>Assembly Program : <a href="https://github.com/gmostofabd/8051-7Segment/blob/main/codes/Push_Button_Pull_8051.asm">Push_Button_Pull_8051.asm</a></h3>
         <div class="prog_cont">
-            <embed type="text/html" src="/codes/7seg_1d_8051.asm"  width="500" height="500">
+            <embed type="text/html" src="codes/Push_Button_Pull_8051.asm"  width="500" height="500">
         </div>
 
+        <h3>Code Discussion:</h3>
 
-
-        <h3>Theory Part 2/2 : Multiplexing SSDs</h3>
+        <h3>Post Run Discussion : Button Read Using Interrupt</h3>
         <blockquote>
-            <p>
-                Suppose you need a three digit display connected to the 8051. Each 7 
-                segment display have 8 pins and so a total amount of 24 pins are to 
-                the connected to the microcontroller and there will be only 8 pins 
-                left with the microcontroller for other input output applications. 
-                Also the maximum number of displays that can be connected to the 8051 
-                is limited to 4 because 8051 has only 4 ports. More over three 3 
-                displays will be ON always and this consumes a considerable amount of 
-                power. All these problems associated with the straight forward method 
-                can be solved by  multiplexing .
-            </p>
-    
+        <p>
+            Let's start with a simple example - using an Interrupt to monitor a button press. 
+            To start, we'll take a sketch you've likely seen before - the "Button" example 
+            sketch included above in this article. This time, to read the button using an 
+            external interrupt source we will connect the switch to the INT0 pin at P3.2
+
+          <br><br>An <strong>ISR</strong> is just like any other subroutine we write inside a 
+          program, except for the difference that an ISR must always end with a 
+          <strong>RETI</strong> instruction and not with a <strong>RET</strong> instruction 
+          (as in the case of subroutines). An ISR when evoked, executes a certain lines 
+          of code that does some kind of operations. It can be anything as defined by 
+          the programmer. The only condition is that the first line of ISR must begin 
+          from the corresponding vector address. Vector address of INT0 is 0003H and that 
+          of INT1 is 0013H for the 8051 Microcontrollers.
+        </p>
         </blockquote>
 
+        <h3>Circuit Diagram : Push Button Reading via External Interrupt.</h3>
 
-        <div class="box_50"><img src="assets/images/3Steps_1.png"/></div>
-        <div class="capt_cont">Fig: Multiple digit Multiplexing tecnique.</div>
+        <div class="box_90"><img src="assets/images/PUSHBUTTON_8051_INT_Ckt.png"/></div>
+        <div class="capt_cont">Fig: Push Button Reading via External Interrupt</div>
 
-        <blockquote>
-            <p>In multiplexing all displays are connected in parallel to one port 
-                and only one display is allowed to turn ON at a time, for a short 
-                period. This cycle is repeated for at a fast rate and due to the 
-                persistence of vision of human eye, all digits seems to glow. The 
-                main advantages of this method are
-            </p>
-        </blockquote>
-
-
-            <ul class="inside">
-                <li>Fewer number of port pins are required .</li>
-                <li>Consumes less power.</li>
-                <li>More number of display units can be interfaced (maximum 24).</li>
-            </ul>
-
-
-        <h3>Circuit Diagram : Seven Segment Display to 8051.</h3>
-
-            <div class="box_90"><img src="assets/images/SSD_2D_Counter.png"/></div>
-            <div class="capt_cont">Fig: two Digit Seven Segment Display Circuit.</div>
-
-
-
-        <h3 align=left>Circuit Discussion :</h3>
-        <blockquote>
-            <p>
-                When assembled and powered on, the circuit will display the number
-                ’16’ and let us see how it is done. Initially the first display is 
-                activated by making  P3.0 high and then digit drive pattern for “1” 
-                is loaded to  the Port 1. This will make the first display to show 
-                “1”. In the mean time P3.1 will be low and so do the second display 
-                will be OFF. This condition is maintained for around 1ms and then 
-                P3.0 is made low. Now both displays will be OFF. Then the second 
-                display is activated by making P3.1 high and then the digit drive 
-                pattern for “6” is loaded to the port 1. This will make the second 
-                display to show “6”. In the mean time P3.0 will be low and so the 
-                second display will be OFF.  This condition is maintained for 
-                another 1ms and then port 3.1 is made low. This cycle is repeated 
-                and due to the persistence of vision you will feel it as “16”.
-    
-                <br><br>Transistor Q1 drives the first display (D1) and transistor 
-                Q2 drives the second display (D2). R11 and R12 are the base current 
-                limiting resistors of Q1 and Q2. The purpose of other components 
-                are explained in the first circuit.
-            </p>
-    
-        </blockquote>
-
-        <h3>Assembly Program : 7seg_2D_8051.asm</h3>
-        <div class="prog_cont">
-        <embed type="text/html" src="codes/7seg_2d_8051.asm"  width="500" height="500">
-        </div>
-
+        <h3>Assembly Program : Push_Button_Intr_8051.asm</h3>
+        <div class="prog_cont"><embed type="text/html" src="codes/Push_Button_Intr_8051.asm"  width="500" height="500"></div>
 
     </td>
 
-	<td valign=top>
+    <td valign=top>
 		
-
-        <div class="vdo_lst_cont">
-            <h3>Lesson VDO-</h3>
-            <iframe width="186" height="120" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-        </div>
-
-
-        <div id="sidebar1"></div>
-
-
-    </td>
-
-
-	</tr>
-         
-    </table>
-
-    <table width=1000 height=50 align= center border="1">
-		<tr>
-			<td width=500>Prev topic: Push Button Interfacing with 8051</td>
-			<td>Next topic: LED Matrix interfacing with 8051</td>
-		</tr>
-    </table>
-
-
-	<div id="footer_common">
-        <div class="prj_footer_cell">
-          <font face="Verdana, Arial, Helvetica, sans-serif" color="#452063" size="4" ><strong>Top Tutorial sites </strong></font>
-          <ul>
-            <li><a href="http://www.melab-bd.com/home.html"><strong>Circuit Today</strong></a></li>
-            <li><a href="http://www.melab-bd.com/about.html"><strong>Radio Electronics</strong></a></li>
-            <li><a href="http://www.melab-bd.com/project.html"><strong>8051 Projects</strong></a></li>
-            <li><a href="http://www.melab-bd.com/trainings.html"><strong>101 Components</strong></a></li>
-          </ul>
-    
-        </div>
+      <div class="vdo_lst_cont">
+          <h3>Lesson Video</h3>
+          <iframe width="184" height="130"
+          src="https://www.youtube.com/embed/tgbNymZ7vqY">
+            </iframe>
       </div>
 
+      <div id="sidebar1"></div>
+    </td>
+
+
+  </tr>
+         
+  </table>
+
+  <table width=1000 height=50 align= center border="1">
+	  <tr>
+			<td>Prev topic: LED Interfacing with 8051</td>
+			<td>Next topic: Seven Segment Display interfacing with 8051</td>
+		</tr>
+  </table>
+
+	<div id="footer_common">
+    <div class="prj_footer_cell">
+      <font face="Verdana, Arial, Helvetica, sans-serif" color="#452063" size="4" ><strong>Top Tutorial sites </strong></font>
+      <ul>
+        <li><a href="http://www.melab-bd.com/home.html"><strong>Circuit Today</strong></a></li>
+        <li><a href="http://www.melab-bd.com/about.html"><strong>Radio Electronics</strong></a></li>
+        <li><a href="http://www.melab-bd.com/project.html"><strong>8051 Projects</strong></a></li>
+        <li><a href="http://www.melab-bd.com/trainings.html"><strong>101 Components</strong></a></li>
+      </ul>
+
+    </div>
+  </div>
+    
+  <footer-component></footer-component>
 </body>
 
 
