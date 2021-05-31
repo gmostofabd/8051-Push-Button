@@ -1,7 +1,4 @@
-body{
-  align-items: center;
-  background-color: white;
-}
+body{align-items: center;  background-color: white;}
 
 h2{ margin: 0px; padding: auto;
   font-size: 200%;
@@ -54,13 +51,11 @@ blockquote {
   quotes: "\201C""\201D""\2018""\2019";
 }
 
-
 #header_common{
   width:1000px; height:130px; 
   margin-left: auto ; margin-right: auto ; 
   background-color:#FFEEDD;
 }
-
 
 #topic_container{
   width:958px; height:auto; 
@@ -88,13 +83,8 @@ blockquote {
   margin-bottom: 10px;
 }
 
-.box_ckt_diag {
-  width: 100%; height: auto;
-  margin: auto;
-}
-
 .prog_cont{
-  width: 90%; height: 500px;
+  width: 70%; height: 500px;
   border-radius: 5px;
   border: 1px solid #210f22;
   background-color: rgb(245, 245, 245);
@@ -113,6 +103,7 @@ blockquote {
 .box_50 {width: 50%; height: auto;}
 .box_70 {width: 70%; height: auto;}
 .box_80 {width: 80%; height: auto;}
+.box_90 {width: 90%; height: auto;}
 
 .inside {
   list-style-position: inside;
@@ -135,35 +126,21 @@ blockquote {
   background-color: #f1f1f1;
 }
 
-.box_this_lesson {
-width: 160px; height: auto;
-border-radius: 15px;
-border: 2px solid #543c97;
-padding: 5px;
-margin-bottom: 10px;
-}
-
-#navcontainer{
-  background: #f0e7d7;
-  width: 120px;
-  margin: 0 auto;
-  padding: .1em 0;
-  
-  font-family: georgia, serif;
-  font-size: 11px;
-  text-align: center;
-}
-
 #footer_common{
-  width:960px; height:200px;
-  margin-left: auto ; margin-right: auto ; 
-  border-radius: 25px; border: 2px solid #73AD21;
+  width:960px; height:250px;
+  margin-left: auto ; margin-right: auto ;
+  margin-top: 20px; 
+  border-radius: 15px; 
   padding: 20px;
-  background-color:#112233;
+  background-color:#3a8a64;
 }
 
-/*====================================================================================================*/
-#wrp_prj_footer{width: 1000px; height: 250px;  margin-top: 50px ; margin-bottom: 50px ; margin-left: auto ; margin-right: auto ; border-top: 3px solid #888888;}
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-  .prj_footer_cell{width: 170px; height: 220px;  margin-left: 43px;  margin-top: 10px; ;  float: left; box-shadow: 0px 0px 9px rgba(200,70,100,0.1);}
+  .prj_footer_cell{
+    width: 220px; height: 220px;  
+    margin-left: 43px;  
+    margin-top: 10px; ;  
+    float: left; 
+    box-shadow: 0px 0px 9px rgba(73, 5, 21, 0.1);
+  }
 /*====================================================================================================*/
