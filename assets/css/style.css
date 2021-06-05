@@ -114,6 +114,7 @@ blockquote {
   background-color: #f1f1f1;
 }
 
+
 .nav_topic{
   width: 960px; height: 50px;
   background-color: burlywood;
@@ -135,36 +136,39 @@ blockquote {
   text-align: center;
 }
 
+
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 .exercise_section{
-  width: 960px;
-  height: auto;
+  width: 960px; height: auto;
   margin: 20px auto;
   padding: 20px 0;
   background-color: rgb(236, 229, 229);
   border-radius: 5px;
 }
 
+.exercise_section img{
+  width: 220px;
+  height: auto;
+  margin: 0 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 8px 10px 0px #000;
+}
+
+.exercise_section_text{
+  width: 650px;
+  height: auto;
+  padding: 0 10px;
+}
 .row{
   overflow: auto;
   padding-top: 10px;
 }
 
-.col_left{
-  width: 700px; height: auto;
-  margin: 0;
+.col{
   float: left;
-}
+  }
 
-.col_right{
-  width: auto;
-  margin: 0;
-  float: left;
-}
-
-.col_right img{
-  width: 220px; height: auto;
-}
 
 .exercise_section h3{
   width: auto;
@@ -195,6 +199,25 @@ blockquote {
   color: #5e6455;
 }
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #footer_common{
   width:920px; height:250px;
