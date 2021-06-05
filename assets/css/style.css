@@ -66,6 +66,14 @@ blockquote {
   border: 1px solid #73AD21;
 }
 
+
+.body_text{
+  width: 760px;
+  height: auto;
+  padding: 0 10px;
+}
+
+
 .vdo_lst_cont {
   width: 190px; height: auto;
   border-radius: 5px;
