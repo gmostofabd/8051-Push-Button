@@ -72,6 +72,12 @@ blockquote {
   padding: 0 10px;
 }
 
+.body_text h3{
+  width: auto;
+  font-family: sans-serif;
+  margin: 0;
+  font-size: 140%;
+}
 
 .vdo_lst_cont {
   width: 190px; height: auto;
