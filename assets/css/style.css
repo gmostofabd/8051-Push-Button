@@ -7,7 +7,7 @@ h2{ margin: 0px; padding: auto;
 }
 
 h3{ margin-left: 5px;
-  font-size: 120%;
+  font-size: 110%;
   flex-wrap: 23px ;
   text-align: left;
   color: rgb(204, 4, 154);
@@ -17,7 +17,7 @@ img{width: 100%; height: 100%;}
 
 p{
   text-align: justify;
-  font-size: 16px;
+  font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   margin-block: 10px 20px;
 }
